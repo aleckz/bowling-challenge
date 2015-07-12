@@ -11,10 +11,10 @@ describe('Bowling Scorecard', function(){
 		});
 	});
 
-		// it('player can roll', function(){
-		// 	bowling.roll();
-		// 	expect(bowling.frameList.length).toEqual(1)
-		// });
+		it('players rolls are stored in an array', function(){
+			bowling.roll(8);
+			expect(bowling.frames.length).toEqual(1)
+		});
 
 
 

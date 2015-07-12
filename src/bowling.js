@@ -1,6 +1,6 @@
 var Bowling = function(){
 	this.score = 0
-	// this.frames = []
+	this.frames = []
 }
 
 Bowling.prototype.totalScore = function() {
@@ -11,7 +11,10 @@ Bowling.prototype.totalScore = function() {
 // 	return this.frames;
 // }
 
-// Bowling.prototype.roll = function (){
-// 	var roll = Math.floor((Math.random() * 10) + 1)
-// 	this.frames.push(roll)
-// }
+Bowling.prototype.roll = function (number){
+	this.frames.push(number)
+}
+
+
+
+// var roll = Math.floor((Math.random() * 10) + 1)
