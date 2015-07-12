@@ -17,7 +17,6 @@ Bowling.prototype.roll = function (number){
 
 	if (number <= 10){
 		this.frames.push(number)
-		this.score + number
 	} else {
 		throw new Error("You can't roll more than 10!")		
 	};
