@@ -1,38 +1,45 @@
-describe('Bowling Scorecard', function(){ 
-	var bowling;
+describe('Scoresheet', function(){ 
+	var scoresheet;
 
 	beforeEach(function(){
-		bowling = new Bowling();
+		scoresheet = new Scoresheet();
 	});
 
 	describe('When Initialized', function(){
 		it('the score is zero', function(){
-			expect(bowling.totalScore()).toEqual(0)
+			expect(scoresheet.totalScore()).toEqual(0)
 		});
 	});
 
 		it('player rolls are stored in an array', function(){
-			bowling.roll(8);
-			expect(bowling.frames.length).toEqual(1)
+			scoresheet.roll(8);
+			expect(scoresheet.frames.length).toEqual(1)
 		});
 
 	describe('When Playing', function(){
 		it('player can view their rolls', function(){
-			bowling.roll(8);
-			bowling.frameList();
-			expect(bowling.frameList()).toEqual([8])
+			scoresheet.roll(8);
+			scoresheet.frameList();
+			expect(scoresheet.frameList()).toEqual([8])
 		});
 
 		it('players cant score more than 10', function(){
-			bowling.roll(12);
-			expect(function() { bowling.roll(12) }).toThrow(new Error("You can't roll more than 10!"))
+			scoresheet.roll(12);
+			expect(function() { scoresheet.roll(12) }).toThrow(new Error("You can't roll more than 10!"))
 		});
 
 		it('number of Rolls are logged', function() {
-			bowling.roll(1)
-			bowling.roll(3)
-			expect(bowling.numberOfRolls).toEqual(2)
-		})
+			scoresheet.roll(1);
+			scoresheet.roll(3);
+			expect(scoresheet.numberOfRolls).toEqual(2);
+		});
+
+	describe('Logging Scores', function(){
+		it('Strike finishes the frame', function(){
+			scoresheet.roll(10)
+			expect(scoresheet.frames.length).toEqual(2);
+		});
+	});
 
 	});
 

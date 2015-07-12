@@ -1,28 +1,31 @@
-var Bowling = function(){
+var Scoresheet = function(){
 	this.score = 0
 	this.frames = []
 	this.numberOfRolls = 0
 }
 
-Bowling.prototype.totalScore = function() {
+Scoresheet.prototype.totalScore = function() {
 	return this.score;
 };
 
-Bowling.prototype.frameList = function(){
+Scoresheet.prototype.frameList = function(){
 	return this.frames;
 }
 
-Bowling.prototype.roll = function (number){
+Scoresheet.prototype.roll = function (number){
 	this.numberOfRolls ++
 
-	if (number <= 10){
+	if (number < 10){
 		this.frames.push(number)
+	} else if (number == 10) {
+		this.frames.push(number)
+		this.frames.push(0)
 	} else {
 		throw new Error("You can't roll more than 10!")		
 	};
 };
 
-Bowling.prototype.scoreCount = function(){
+Scoresheet.prototype.scoreCount = function(){
 	return this.numberOfRolls;
 }
 
