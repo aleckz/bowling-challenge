@@ -35,6 +35,13 @@ describe('Scoresheet', function(){
 		});
 
 	describe('Logging Scores', function(){
+		it('can log the score of a regular frame', function(){
+			scoresheet.roll(6)
+			scoresheet.roll(3)
+			expect(scoresheet.score).toEqual(9);
+		});
+
+
 		it('Strike finishes the frame', function(){
 			scoresheet.roll(10)
 			expect(scoresheet.frames.length).toEqual(2);

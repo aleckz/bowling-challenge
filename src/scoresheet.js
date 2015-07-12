@@ -17,6 +17,7 @@ Scoresheet.prototype.roll = function (number){
 
 	if (number < 10){
 		this.frames.push(number)
+		
 	} else if (number == 10) {
 		this.frames.push(number)
 		this.frames.push(0)
