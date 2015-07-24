@@ -24,7 +24,6 @@ describe('Scoresheet', function(){
 		});
 
 		it('players cant score more than 10', function(){
-			scoresheet.roll(12);
 			expect(function() { scoresheet.roll(12) }).toThrow(new Error("You can't roll more than 10!"))
 		});
 
@@ -34,6 +33,12 @@ describe('Scoresheet', function(){
 			expect(scoresheet.numberOfRolls).toEqual(2);
 		});
 
+		it('Strike finishes the frame', function(){
+			scoresheet.roll(10)
+			expect(scoresheet.frames.length).toEqual(2);
+		});
+	});
+
 	describe('Logging Scores', function(){
 		it('can log the score of a regular frame', function(){
 			scoresheet.roll(6)
@@ -41,13 +46,16 @@ describe('Scoresheet', function(){
 			expect(scoresheet.score).toEqual(9);
 		});
 
-
-		it('Strike finishes the frame', function(){
+		xit('can log the score of a strike bonus', function(){
 			scoresheet.roll(10)
-			expect(scoresheet.frames.length).toEqual(2);
+			scoresheet.roll(5)
+			scoresheet.roll()
 		});
+
+
+		
 	});
 
-	});
+	
 
 });

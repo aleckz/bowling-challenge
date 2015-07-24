@@ -24,12 +24,9 @@ Scoresheet.prototype.roll = function (number){
 	} else {
 		throw new Error("You can't roll more than 10!")		
 	};
+	this.score += number
 };
 
 Scoresheet.prototype.scoreCount = function(){
 	return this.numberOfRolls;
 }
-
-
-
-// var roll = Math.floor((Math.random() * 10) + 1)
